@@ -8,6 +8,7 @@ import EpochLog from './components/EpochLog'
 import DigitCanvas from './components/DigitCanvas'
 import PredictionBars from './components/PredictionBars'
 import { SocketProvider } from './context/SocketContext'
+import './App.css'
 
 export default function App() {
   return (

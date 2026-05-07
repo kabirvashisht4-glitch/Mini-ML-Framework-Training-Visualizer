@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useSocketContext } from '../context/useSocketContext'
+import { useSocketContext } from '../context/SocketContext'
 
 const HISTORY_LIMIT = 200
 

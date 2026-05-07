@@ -1,5 +1,4 @@
 import { useTraining } from '../hooks/useTraining'
-import Panel from './Panel'
 
 export default function EpochLog() {
   const { logEntries } = useTraining()
@@ -11,14 +10,20 @@ export default function EpochLog() {
       ]
 
   return (
-    <Panel title="Epoch Log" subtitle="Latest messages from the bridge and trainer.">
-      <div className="space-y-3">
+    <section className="panel">
+      <div className="panel-heading">
+        <div>
+          <h2>Epoch Log</h2>
+          <p>Latest messages from the bridge and trainer.</p>
+        </div>
+      </div>
+      <div className="log-list">
         {entries.map((entry) => (
-          <div key={entry.id} className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm text-slate-300">
+          <div key={entry.id} className="log-entry">
             {entry.message}
           </div>
         ))}
       </div>
-    </Panel>
+    </section>
   )
 }

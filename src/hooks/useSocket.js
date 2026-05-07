@@ -4,6 +4,7 @@ export function useSocket() {
   const [socketState, setSocketState] = useState({
     connected: false,
     socket: null,
+    statusMessage: 'Ready to connect to the training bridge.',
   })
 
   useEffect(() => {
@@ -12,6 +13,7 @@ export function useSocket() {
       setSocketState({
         connected: false,
         socket: null,
+        statusMessage: 'Training bridge disconnected.',
       })
     }
   }, [])
