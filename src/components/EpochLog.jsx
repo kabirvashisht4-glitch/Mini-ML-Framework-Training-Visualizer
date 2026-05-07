@@ -10,20 +10,25 @@ export default function EpochLog() {
       ]
 
   return (
-    <section className="panel">
-      <div className="panel-heading">
-        <div>
-          <h2>Epoch Log</h2>
-          <p>Latest messages from the bridge and trainer.</p>
-        </div>
-      </div>
-      <div className="log-list">
-        {entries.map((entry) => (
-          <div key={entry.id} className="log-entry">
-            {entry.message}
-          </div>
-        ))}
-      </div>
+    <section className="box">
+      <h2>Epoch Log</h2>
+      <p>Latest messages from the bridge and trainer.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          {entries.map((entry, index) => (
+            <tr key={entry.id}>
+              <td>{index + 1}</td>
+              <td>{entry.message}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
   )
 }

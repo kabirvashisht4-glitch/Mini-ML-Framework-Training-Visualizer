@@ -1,24 +1,23 @@
 export default function WeightHeatmap() {
-  const cells = Array.from({ length: 64 }, (_, index) => index)
+  const rows = Array.from({ length: 8 }, (_, row) =>
+    Array.from({ length: 8 }, (_, column) => ((row * 8 + column) / 100).toFixed(2)),
+  )
 
   return (
-    <section className="panel">
-      <div className="panel-heading">
-        <div>
-          <h2>Weight Heatmap</h2>
-          <p>Input layer weights preview.</p>
-        </div>
-      </div>
-      <div className="heatmap" aria-label="Weight heatmap">
-        {cells.map((cell) => (
-          <span
-            key={cell}
-            style={{
-              backgroundColor: `hsl(${210 - (cell % 8) * 18}, 80%, ${28 + (cell % 5) * 8}%)`,
-            }}
-          />
-        ))}
-      </div>
+    <section className="box">
+      <h2>Weight Table</h2>
+      <p>Input layer weights preview.</p>
+      <table className="small-table">
+        <tbody>
+          {rows.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
   )
 }
